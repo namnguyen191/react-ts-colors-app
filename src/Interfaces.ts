@@ -10,4 +10,4 @@ type Color = {
   color: string;
 };
 
-export type { PalleteObj };
+export type { PalleteObj, Color };
