@@ -1,9 +1,9 @@
-import chroma, { hex } from 'chroma-js';
+import chroma from 'chroma-js';
 import { PalleteObj } from './Interfaces';
 
 const levels = [50, 100, 200, 300, 400, 500, 600, 700, 800, 900];
 
-type ColorLevel = {
+export type ColorLevel = {
   name: string;
   id: string;
   hex: string;
@@ -11,7 +11,7 @@ type ColorLevel = {
   rgba: string;
 };
 
-function generatePallete(starterPallete: PalleteObj) {
+export function generatePallete(starterPallete: PalleteObj) {
   let newPallete: {
     palleteName: string;
     id: string;
