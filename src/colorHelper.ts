@@ -1,5 +1,5 @@
 import chroma from 'chroma-js';
-import { PalleteObj } from './Interfaces';
+import { GeneratedPalleteObj, PalleteObj } from './Interfaces';
 
 const levels = [50, 100, 200, 300, 400, 500, 600, 700, 800, 900];
 
@@ -12,14 +12,7 @@ export type ColorLevel = {
 };
 
 export function generatePallete(starterPallete: PalleteObj) {
-  let newPallete: {
-    palleteName: string;
-    id: string;
-    emoji: string;
-    colors: {
-      [key: number]: ColorLevel[];
-    };
-  } = {
+  let newPallete: GeneratedPalleteObj = {
     palleteName: starterPallete.paletteName,
     id: starterPallete.id,
     emoji: starterPallete.emoji,
