@@ -37,7 +37,7 @@ class Pallete extends Component<PalleteProps, PalleteStates> {
   }
 
   render() {
-    const { colors } = this.props.pallete;
+    const { colors, palleteName, emoji } = this.props.pallete;
     const { level, format } = this.state;
 
     const colorBoxes = colors[level].map((color) => (
@@ -46,6 +46,7 @@ class Pallete extends Component<PalleteProps, PalleteStates> {
           name: color.name,
           color: color[format]
         }}
+        key={color.id}
       />
     ));
 
@@ -56,9 +57,11 @@ class Pallete extends Component<PalleteProps, PalleteStates> {
           changeLevel={this.changeLevel}
           handleChange={this.changeFormat}
         />
-        {/* Navbar goes here */}
         <div className="Pallete-colors">{colorBoxes}</div>
-        {/* Footer section */}
+        <footer className="Pallete-footer">
+          {palleteName}
+          <span className="emoji">{emoji}</span>
+        </footer>
       </div>
     );
   }
