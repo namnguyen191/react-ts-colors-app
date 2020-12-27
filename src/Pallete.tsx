@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import ColorBox from './ColorBox';
-import Slider from 'rc-slider';
-import 'rc-slider/assets/index.css';
 import { ColorLevel } from './colorHelper';
 import './Pallete.css';
+import Navbar from './Navbar';
 
 interface PalleteProps {
   pallete: {
@@ -18,43 +17,45 @@ interface PalleteProps {
 
 type PalleteStates = {
   level: number;
+  format: 'hex' | 'rgb' | 'rgba';
 };
 
 class Pallete extends Component<PalleteProps, PalleteStates> {
   constructor(props: PalleteProps) {
     super(props);
-    this.state = { level: 500 };
+    this.state = { level: 500, format: 'hex' };
     this.changeLevel = this.changeLevel.bind(this);
+    this.changeFormat = this.changeFormat.bind(this);
   }
 
   changeLevel(newLevel: number) {
     this.setState({ level: newLevel });
   }
 
+  changeFormat(val: 'hex' | 'rgb' | 'rgba') {
+    this.setState({ format: val });
+  }
+
   render() {
     const { colors } = this.props.pallete;
-    const { level } = this.state;
+    const { level, format } = this.state;
 
     const colorBoxes = colors[level].map((color) => (
       <ColorBox
         color={{
           name: color.name,
-          color: color.hex
+          color: color[format]
         }}
       />
     ));
 
     return (
       <div className="Pallete">
-        <div className="slider">
-          <Slider
-            defaultValue={level}
-            min={100}
-            max={900}
-            step={100}
-            onAfterChange={this.changeLevel}
-          />
-        </div>
+        <Navbar
+          level={level}
+          changeLevel={this.changeLevel}
+          handleChange={this.changeFormat}
+        />
         {/* Navbar goes here */}
         <div className="Pallete-colors">{colorBoxes}</div>
         {/* Footer section */}
