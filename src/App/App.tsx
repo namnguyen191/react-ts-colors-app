@@ -7,6 +7,7 @@ import { generatePallete } from '../Utilities/colorHelper';
 import PalleteList from '../PalleteList/PalleteList';
 import SingleColorPallete from '../SingleColorPallete/SingleColorPallete';
 import { PalleteObj } from '../Types/DataModels.type';
+import NewPalleteForm from '../NewPalleteForm/NewPalleteForm';
 
 class App extends Component {
   findPallete(id: string): PalleteObj {
@@ -22,6 +23,7 @@ class App extends Component {
   render() {
     return (
       <Switch>
+        <Route exact path="/pallete/new" render={() => <NewPalleteForm />} />
         <Route
           exact
           path="/"

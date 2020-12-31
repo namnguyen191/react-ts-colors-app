@@ -1,6 +1,7 @@
 import { WithStyles } from '@material-ui/core';
 import { withStyles } from '@material-ui/styles';
 import { Component } from 'react';
+import { Link } from 'react-router-dom';
 import MiniPallete from '../MiniPallete/MiniPallete';
 import { PalleteListProps } from '../Types/ComponentProps.type';
 import styles from './styles';
@@ -20,12 +21,14 @@ class PalleteList extends Component<Props> {
         <div className={classes.container}>
           <nav className={classes.nav}>
             <h1>React Colors</h1>
+            <Link to="/pallete/new">Create a pallete</Link>
           </nav>
           <div className={classes.palletes}>
             {palletes.map((pallete) => (
               <MiniPallete
                 {...pallete}
                 handleClick={() => this.goToPallete(pallete.id)}
+                id={pallete.id}
               />
             ))}
           </div>

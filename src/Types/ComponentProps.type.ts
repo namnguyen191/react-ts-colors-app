@@ -36,3 +36,5 @@ export type SingleColorPalleteProps = {
   pallete: GeneratedPalleteObj;
   colorId: string;
 };
+
+export type NewPalleteFormProps = {};

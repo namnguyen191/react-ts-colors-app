@@ -17,3 +17,7 @@ export type PalleteStates = {
 export type SingleColorPalleteStates = {
   format: ColorFormat;
 };
+
+export type NewPalleteFormStates = {
+  open: boolean;
+};

@@ -20,7 +20,13 @@ const styles = (theme: Theme) =>
       display: 'flex',
       width: '100%',
       justifyContent: 'space-between',
-      color: 'white'
+      alignItems: 'center',
+      color: 'white',
+      fontSize: '1.6rem',
+      '& a': {
+        color: 'white',
+        textDecoration: 'none'
+      }
     },
     palletes: {
       width: '100%',
