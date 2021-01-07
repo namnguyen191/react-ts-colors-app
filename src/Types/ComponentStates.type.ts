@@ -9,15 +9,15 @@ export type NavbarStates = {
   open: boolean;
 };
 
-export type PalleteStates = {
+export type PaletteStates = {
   level: number;
   format: ColorFormat;
 };
 
-export type SingleColorPalleteStates = {
+export type SingleColorPaletteStates = {
   format: ColorFormat;
 };
 
-export type NewPalleteFormStates = {
+export type NewPaletteFormStates = {
   open: boolean;
 };

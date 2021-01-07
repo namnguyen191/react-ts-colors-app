@@ -1,42 +1,25 @@
 import { createStyles, makeStyles, Theme } from '@material-ui/core';
-
-const drawerWidth = 400;
+import { DRAWER_WIDTH } from '../GlobalCssConst';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {
-      display: 'flex'
-    },
-    appBar: {
-      transition: theme.transitions.create(['margin', 'width'], {
-        easing: theme.transitions.easing.sharp,
-        duration: theme.transitions.duration.leavingScreen
-      })
-    },
-    appBarShift: {
-      width: `calc(100% - ${drawerWidth}px)`,
-      marginLeft: drawerWidth,
-      transition: theme.transitions.create(['margin', 'width'], {
-        easing: theme.transitions.easing.easeOut,
-        duration: theme.transitions.duration.enteringScreen
-      })
-    },
-    menuButton: {
-      marginRight: theme.spacing(2)
-    },
-    hide: {
-      display: 'none'
+      display: 'flex',
+      lineHeight: 0
     },
     drawer: {
-      width: drawerWidth,
+      width: DRAWER_WIDTH,
       flexShrink: 0
     },
     drawerPaper: {
-      width: drawerWidth
+      width: DRAWER_WIDTH,
+      display: 'flex',
+      alignItems: 'center'
     },
     drawerHeader: {
       display: 'flex',
       alignItems: 'center',
+      width: '100%',
       padding: theme.spacing(0, 1),
       // necessary for content to be below app bar
       ...theme.mixins.toolbar,
@@ -44,12 +27,13 @@ const useStyles = makeStyles((theme: Theme) =>
     },
     content: {
       flexGrow: 1,
-      padding: theme.spacing(3),
+      height: 'calc(100vh - 64px)',
+      padding: 0,
       transition: theme.transitions.create('margin', {
         easing: theme.transitions.easing.sharp,
         duration: theme.transitions.duration.leavingScreen
       }),
-      marginLeft: -drawerWidth
+      marginLeft: -DRAWER_WIDTH
     },
     contentShift: {
       transition: theme.transitions.create('margin', {
@@ -57,6 +41,20 @@ const useStyles = makeStyles((theme: Theme) =>
         duration: theme.transitions.duration.enteringScreen
       }),
       marginLeft: 0
+    },
+    container: {
+      width: '90%',
+      height: '100%',
+      display: 'flex',
+      flexDirection: 'column',
+      justifyContent: 'center',
+      alignItems: 'center'
+    },
+    buttons: {
+      width: '100%'
+    },
+    button: {
+      width: '50%'
     }
   })
 );

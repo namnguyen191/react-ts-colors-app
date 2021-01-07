@@ -2,7 +2,7 @@ import { createStyles, Theme } from '@material-ui/core';
 
 const styles = (theme: Theme) =>
   createStyles({
-    PalleteFooter: {
+    PaletteFooter: {
       backgroundColor: 'white',
       height: '5vh',
       display: 'flex',

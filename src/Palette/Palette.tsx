@@ -2,17 +2,17 @@ import { Component } from 'react';
 import ColorBox from '../ColorBox/ColorBox';
 
 import Navbar from '../Navbar/Navbar';
-import PalleteFooter from '../PalleteFooter/PalleteFooter';
-import { PalleteProps } from '../Types/ComponentProps.type';
-import { PalleteStates } from '../Types/ComponentStates.type';
+import PaletteFooter from '../PaletteFooter/PaletteFooter';
+import { PaletteProps } from '../Types/ComponentProps.type';
+import { PaletteStates } from '../Types/ComponentStates.type';
 import { ColorFormat } from '../Types/Other.type';
 import styles from './styles';
 import { WithStyles } from '@material-ui/core';
 import { withStyles } from '@material-ui/styles';
 
-type Props = PalleteProps & WithStyles<typeof styles>;
+type Props = PaletteProps & WithStyles<typeof styles>;
 
-class Pallete extends Component<Props, PalleteStates> {
+class Palette extends Component<Props, PaletteStates> {
   constructor(props: Props) {
     super(props);
     this.state = { level: 500, format: 'hex' };
@@ -29,7 +29,7 @@ class Pallete extends Component<Props, PalleteStates> {
   }
 
   render() {
-    const { colors, palleteName, emoji, id } = this.props.pallete;
+    const { colors, paletteName, emoji, id } = this.props.palette;
     const { level, format } = this.state;
     const { classes } = this.props;
 
@@ -40,25 +40,25 @@ class Pallete extends Component<Props, PalleteStates> {
           color: color[format]
         }}
         key={color.name}
-        moreUrl={`/pallete/${id}/${color.id}`}
+        moreUrl={`/palette/${id}/${color.id}`}
         showLink={true}
       />
     ));
 
     return (
-      <div className={classes.Pallete}>
+      <div className={classes.Palette}>
         <Navbar
           level={level}
           changeLevel={this.changeLevel}
           handleChange={this.changeFormat}
         />
-        <div className={classes.PalleteColors}>{colorBoxes}</div>
-        <PalleteFooter palleteName={palleteName} emoji={emoji} />
+        <div className={classes.PaletteColors}>{colorBoxes}</div>
+        <PaletteFooter paletteName={paletteName} emoji={emoji} />
       </div>
     );
   }
 }
 
-export type PalleteChangeLevel = Pallete['changeLevel'];
+export type PaletteChangeLevel = Palette['changeLevel'];
 
-export default withStyles(styles)(Pallete);
+export default withStyles(styles)(Palette);

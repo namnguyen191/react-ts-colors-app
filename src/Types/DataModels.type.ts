@@ -6,15 +6,15 @@ export type Color = {
   id?: string;
 };
 
-export type PalleteObj = {
+export type PaletteObj = {
   paletteName: string;
   id: string;
   emoji: string;
   colors: Color[];
 };
 
-export type GeneratedPalleteObj = {
-  palleteName: string;
+export type GeneratedPaletteObj = {
+  paletteName: string;
   id: string;
   emoji: string;
   colors: {

@@ -1,6 +1,6 @@
 import { RouteComponentProps } from 'react-router-dom';
-import { PalleteChangeLevel } from '../Pallete/Pallete';
-import { Color, GeneratedPalleteObj, PalleteObj } from './DataModels.type';
+import { PaletteChangeLevel } from '../Palette/Palette';
+import { Color, GeneratedPaletteObj, PaletteObj } from './DataModels.type';
 import { ColorFormat } from './Other.type';
 
 export type ColorBoxProps = {
@@ -9,32 +9,35 @@ export type ColorBoxProps = {
   showLink: boolean;
 };
 
-export type MiniPalleteProps = PalleteObj & {
-  handleClick: (event: React.MouseEvent<HTMLDivElement>) => void;
+export type MiniPaletteProps = PaletteObj & {
+  handleClick: (id: string) => void;
+  id: string;
+  openDialog: (id: string) => void;
 };
 
 export type NavbarProps = {
   level?: number;
-  changeLevel?: PalleteChangeLevel;
+  changeLevel?: PaletteChangeLevel;
   handleChange: (val: ColorFormat) => void;
 };
 
-export type PalleteProps = {
-  pallete: GeneratedPalleteObj;
+export type PaletteProps = {
+  palette: GeneratedPaletteObj;
 };
 
-export type PalleteFooterProps = {
-  palleteName: string;
+export type PaletteFooterProps = {
+  paletteName: string;
   emoji: string;
 };
 
-export type PalleteListProps = RouteComponentProps & {
-  palletes: PalleteObj[];
+export type PaletteListProps = RouteComponentProps & {
+  palettes: PaletteObj[];
+  deletePalette: (id: string) => void;
 };
 
-export type SingleColorPalleteProps = {
-  pallete: GeneratedPalleteObj;
+export type SingleColorPaletteProps = {
+  palette: GeneratedPaletteObj;
   colorId: string;
 };
 
-export type NewPalleteFormProps = {};
+export type NewPaletteFormProps = {};

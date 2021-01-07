@@ -1,6 +1,7 @@
 import { createStyles, Theme } from '@material-ui/core';
 import { ColorBoxProps } from '../Types/ComponentProps.type';
 import chroma from 'chroma-js';
+import { sizes } from '../GlobalCssConst';
 
 const styles = (theme: Theme) =>
   createStyles({
@@ -16,6 +17,18 @@ const styles = (theme: Theme) =>
         '& $copyButton': {
           opacity: 1
         }
+      },
+      [sizes.down('lg')]: {
+        width: '25%',
+        height: (props: ColorBoxProps) => (props.showLink ? '20%' : '33.333%')
+      },
+      [sizes.down('md')]: {
+        width: '50%',
+        height: (props: ColorBoxProps) => (props.showLink ? '10%' : '20%')
+      },
+      [sizes.down('xs')]: {
+        width: '100%',
+        height: (props: ColorBoxProps) => (props.showLink ? '5%' : '10%')
       }
     },
     copyText: {
@@ -113,7 +126,10 @@ const styles = (theme: Theme) =>
         textAlign: 'center',
         marginBottom: 0,
         padding: '1.6rem',
-        textTransform: 'uppercase'
+        textTransform: 'uppercase',
+        [sizes.down('xs')]: {
+          fontSize: '6rem'
+        }
       },
       '& p': {
         fontSize: '3.2rem',

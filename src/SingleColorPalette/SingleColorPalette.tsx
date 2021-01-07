@@ -4,31 +4,31 @@ import * as React from 'react';
 import { Link } from 'react-router-dom';
 import ColorBox from '../ColorBox/ColorBox';
 import Navbar from '../Navbar/Navbar';
-import PalleteFooter from '../PalleteFooter/PalleteFooter';
-import { SingleColorPalleteProps } from '../Types/ComponentProps.type';
-import { SingleColorPalleteStates } from '../Types/ComponentStates.type';
-import { GeneratedPalleteObj } from '../Types/DataModels.type';
+import PaletteFooter from '../PaletteFooter/PaletteFooter';
+import { SingleColorPaletteProps } from '../Types/ComponentProps.type';
+import { SingleColorPaletteStates } from '../Types/ComponentStates.type';
+import { GeneratedPaletteObj } from '../Types/DataModels.type';
 import { ColorFormat, ColorLevel } from '../Types/Other.type';
 import styles from './styles';
 
-type Props = SingleColorPalleteProps & WithStyles<typeof styles>;
+type Props = SingleColorPaletteProps & WithStyles<typeof styles>;
 
-class SingleColorPallete extends React.Component<
+class SingleColorPalette extends React.Component<
   Props,
-  SingleColorPalleteStates
+  SingleColorPaletteStates
 > {
   private _shades: ColorLevel[];
   constructor(props: Props) {
     super(props);
-    this._shades = this.gatherShades(this.props.pallete, this.props.colorId);
+    this._shades = this.gatherShades(this.props.palette, this.props.colorId);
     this.state = { format: 'hex' };
     this.changeFormat = this.changeFormat.bind(this);
   }
 
-  gatherShades(pallete: GeneratedPalleteObj, colorToFilterBy: string) {
+  gatherShades(palette: GeneratedPaletteObj, colorToFilterBy: string) {
     // Return all shades of given color
     let shades: ColorLevel[] = [];
-    let allColors = pallete.colors;
+    let allColors = palette.colors;
     for (let key in allColors) {
       const correctColor = allColors[key].filter(
         (color) => color.id === colorToFilterBy
@@ -45,7 +45,7 @@ class SingleColorPallete extends React.Component<
 
   render() {
     const { format } = this.state;
-    const { palleteName, emoji, id } = this.props.pallete;
+    const { paletteName, emoji, id } = this.props.palette;
     const { classes } = this.props;
 
     const colorBoxes = this._shades.map((color) => (
@@ -58,20 +58,20 @@ class SingleColorPallete extends React.Component<
     ));
 
     return (
-      <div className={classes.Pallete}>
+      <div className={classes.Palette}>
         <Navbar handleChange={this.changeFormat} />
-        <div className={classes.PalleteColors}>
+        <div className={classes.PaletteColors}>
           {colorBoxes}
           <div className={classes.goBack}>
-            <Link to={`/pallete/${id}`} className="back-button">
+            <Link to={`/palette/${id}`} className="back-button">
               GO BACK
             </Link>
           </div>
         </div>
-        <PalleteFooter palleteName={palleteName} emoji={emoji} />
+        <PaletteFooter paletteName={paletteName} emoji={emoji} />
       </div>
     );
   }
 }
 
-export default withStyles(styles)(SingleColorPallete);
+export default withStyles(styles)(SingleColorPalette);

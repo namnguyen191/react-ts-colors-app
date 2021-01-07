@@ -2,15 +2,15 @@ import { createStyles, Theme } from '@material-ui/core';
 
 const styles = (theme: Theme) =>
   createStyles({
-    Pallete: {
+    Palette: {
       height: '100vh',
       display: 'flex',
       flexDirection: 'column'
     },
-    PalleteColors: {
+    PaletteColors: {
       height: '90%'
     },
-    PalleteFooter: {
+    PaletteFooter: {
       backgroundColor: 'white',
       height: '5vh',
       display: 'flex',

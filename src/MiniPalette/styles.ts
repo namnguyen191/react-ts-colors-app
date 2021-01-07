@@ -9,8 +9,9 @@ const styles = (theme: Theme) =>
       padding: '0.8rem',
       position: 'relative',
       overflow: 'hidden',
-      '&:hover': {
-        cursor: 'pointer'
+      cursor: 'pointer',
+      '&:hover svg': {
+        opacity: 1
       }
     },
     colors: {
@@ -41,6 +42,16 @@ const styles = (theme: Theme) =>
       margin: '0 auto',
       position: 'relative',
       marginBottom: '-.35rem'
+    },
+    deleteIcon: {
+      color: 'white',
+      backgroundColor: '#eb3d30',
+      position: 'absolute',
+      right: 0,
+      top: 0,
+      zIndex: 10,
+      opacity: 0,
+      transition: 'all .3s ease-in-out'
     }
   });
 

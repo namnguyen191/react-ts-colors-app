@@ -1,4 +1,5 @@
 import { createStyles, Theme } from '@material-ui/core';
+import { sizes } from '../GlobalCssConst';
 
 const styles = (theme: Theme) =>
   createStyles({
@@ -20,6 +21,9 @@ const styles = (theme: Theme) =>
       '& a': {
         textDecoration: 'none',
         color: 'black'
+      },
+      [sizes.down('xs')]: {
+        display: 'none'
       }
     },
     slider: {
@@ -38,6 +42,9 @@ const styles = (theme: Theme) =>
         height: '1.3rem',
         marginLeft: '-0.7rem',
         marginTop: '-0.3rem'
+      },
+      [sizes.down('xs')]: {
+        width: '15rem'
       },
       '& .rc-slider-track': {
         backgroundColor: 'transparent'

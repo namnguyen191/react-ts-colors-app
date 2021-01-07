@@ -1,24 +1,24 @@
 import chroma from 'chroma-js';
-import { GeneratedPalleteObj, PalleteObj } from '../Types/DataModels.type';
+import { GeneratedPaletteObj, PaletteObj } from '../Types/DataModels.type';
 
 const levels = [50, 100, 200, 300, 400, 500, 600, 700, 800, 900];
 
-export function generatePallete(starterPallete: PalleteObj) {
-  let newPallete: GeneratedPalleteObj = {
-    palleteName: starterPallete.paletteName,
-    id: starterPallete.id,
-    emoji: starterPallete.emoji,
+export function generatePalette(starterPalette: PaletteObj) {
+  let newPalette: GeneratedPaletteObj = {
+    paletteName: starterPalette.paletteName,
+    id: starterPalette.id,
+    emoji: starterPalette.emoji,
     colors: {}
   };
 
   for (let level of levels) {
-    newPallete.colors[level] = [];
+    newPalette.colors[level] = [];
   }
 
-  for (let color of starterPallete.colors) {
+  for (let color of starterPalette.colors) {
     let scale = generateScale(color.color, 10).reverse();
     for (let i in scale) {
-      newPallete.colors[levels[i]].push({
+      newPalette.colors[levels[i]].push({
         name: `${color.name} ${levels[i]}`,
         id: color.name.toLowerCase().replace(/ /g, '-'),
         hex: scale[i],
@@ -31,7 +31,7 @@ export function generatePallete(starterPallete: PalleteObj) {
     }
   }
 
-  return newPallete;
+  return newPalette;
 }
 
 function getRange(hexColor: string) {

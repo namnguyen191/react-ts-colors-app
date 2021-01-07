@@ -1,13 +1,14 @@
 import { createStyles, Theme } from '@material-ui/core';
+import { sizes } from '../GlobalCssConst';
 
 const styles = (theme: Theme) =>
   createStyles({
-    Pallete: {
+    Palette: {
       height: '100vh',
       display: 'flex',
       flexDirection: 'column'
     },
-    PalleteColors: {
+    PaletteColors: {
       height: '90%'
     },
     goBack: {
@@ -38,6 +39,18 @@ const styles = (theme: Theme) =>
         textTransform: 'uppercase',
         border: 'none',
         textDecoration: 'none'
+      },
+      [sizes.down('lg')]: {
+        height: '33.333%',
+        width: '25%'
+      },
+      [sizes.down('md')]: {
+        height: '20%',
+        width: '50%'
+      },
+      [sizes.down('xs')]: {
+        height: '10%',
+        width: '100%'
       }
     }
   });
