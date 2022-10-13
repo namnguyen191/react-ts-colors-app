@@ -8,7 +8,7 @@ export type PageProps = {
 const Page: React.FC<React.PropsWithChildren<PageProps>> = (props) => {
   const { children } = props;
 
-  const classes = useStyles(props);
+  useStyles(props);
 
   return <section className="page">{children}</section>;
 };
